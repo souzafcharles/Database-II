@@ -14,4 +14,6 @@
 
 ## Subject Session Developed
 
-- 
+- Case studies Part 01: [SQL in Oracle: DDL, DML, DQL, User Permissions, Sequences and Views](https://github.com/souzafcharles/Database-II/tree/master/Subjectwork_Part_01)
+- Case studies Part 02: [PL/SQL Language: Cursors, Procedures, Functions, Triggers](https://github.com/souzafcharles/Database-II/tree/master/Subjectwork_Part_02)
+- Case studies Part 03: [Non-relational paradigm: MongoDB](https://github.com/souzafcharles/Database-II/tree/master/Subjectwork_Part_03)
