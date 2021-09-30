@@ -1,0 +1,652 @@
+Microsoft Windows [versão 10.0.19042.1052]
+(c) Microsoft Corporation. Todos os direitos reservados.
+
+C:\Users\Charles>cd C:\Program Files\MongoDB\Server\4.2\bin
+
+C:\Program Files\MongoDB\Server\4.2\bin>mongo.exe
+MongoDB shell version v4.2.8
+connecting to: mongodb://127.0.0.1:27017/?compressors=disabled&gssapiServiceName=mongodb
+Implicit session: session { "id" : UUID("ee402590-47d4-41f2-be4e-c14532d60044") }
+MongoDB server version: 4.2.8
+Server has startup warnings:
+2021-07-05T19:08:22.106-0300 I  CONTROL  [initandlisten]
+2021-07-05T19:08:22.106-0300 I  CONTROL  [initandlisten] ** WARNING: Access control is not enabled for the database.
+2021-07-05T19:08:22.106-0300 I  CONTROL  [initandlisten] **          Read and write access to data and configuration is unrestricted.
+2021-07-05T19:08:22.107-0300 I  CONTROL  [initandlisten]
+---
+Enable MongoDB's free cloud-based monitoring service, which will then receive and display
+metrics about your deployment (disk utilization, CPU, operation statistics, etc).
+
+The monitoring data will be available on a MongoDB website with a unique URL accessible to you
+and anyone you share the URL with. MongoDB may use this information to make product
+improvements and to suggest MongoDB products and deployment options to you.
+
+To enable free monitoring, run the following command: db.enableFreeMonitoring()
+To permanently disable this reminder, run the following command: db.disableFreeMonitoring()
+---
+
+> show dbs
+admin                          0.000GB
+config                         0.000GB
+local                          0.000GB
+>
+> use eventoPrefeituraRoraima
+switched to db eventoPrefeituraRoraima
+>
+> db.servidorpublico.insertOne(
+... {
+... "_id" : 109,
+... "nome" : "Crispim Epaminondas",
+... "cpf" : "753.963.552-15",
+... "sexo" : "M",
+... "salario" : 6769.96,
+... "telefones" : [ {"ddd" : 95, "numero" : "98242-9523"},
+... {"ddd" : 95, "numero" : "3535-8996"}
+... ],
+... "email" : "epaminondas@email.com",
+... "escolaridade" : "Nivel 4",
+... "funcao" : "Turismologo"
+... }
+... )
+{ "acknowledged" : true, "insertedId" : 109 }
+>
+> db.servidorpublico.insertOne(
+... {
+... "_id" : 118,
+... "nome" : "Belizario Guerino",
+... "cpf" : " 321.153.252-00",
+... "sexo" : "M",
+... "salario" : 11787.12,
+... "telefones" : [ {"ddd" : 95, "numero" : "98296-8963"},
+... {"ddd" : 95, "numero" : "3535-5236"}
+... ],
+... "email" : ["belizarioguerino@email.com", "chefiaturismo@email.com"],
+... "escolaridade" : "Nivel 5",
+... " funcao" : {
+... " funcaoAdjunta" : {
+... "cargo" : "Turismologo"
+... },
+... "funcaoTemporaria" : {
+... "cargo" : "Chefia em Turismo "
+... }
+... }
+... }
+... )
+{ "acknowledged" : true, "insertedId" : 118 }
+>
+> db.servidorpublico.insertOne(
+... {
+... "_id" : 166,
+... "nome" : "Balthazar Gregorio",
+... "cpf" : "850.883.852-51",
+... "sexo" : "M",
+... "salario" : 780.45,
+... "telefones" : "95 98485-8520",
+... "email" : "balthazargregorio@email.com",
+... "escolaridade" : "Nivel 3",
+... "funcao" : "Estagiario em Turismo"
+... }
+... )
+{ "acknowledged" : true, "insertedId" : 166 }
+>
+> db.servidorpublico.insertOne(
+... {
+... "_id" : 158,
+... "nome" : "Zuleide Zacarias",
+... "cpf" : "002.183.062-02",
+... "sexo" : "F",
+... "salario" : 4767.30,
+... "telefones" : [ {"ddd" : 95, "numero" : " 9963-5287"},
+... {"ddd" : 95, "numero" : "3536-1111"}
+... ],
+... "email" : "zuleidezacarias@email.com",
+... "escolaridade" : "Nivel 5",
+... "funcao" : "Profissional de Educacao Fisica"
+... }
+... )
+{ "acknowledged" : true, "insertedId" : 158 }
+>
+> db.servidorpublico.update({"_id":166}, { $set: {"salario": 800.45}})
+WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 1 })
+>
+> db.servidorpublico.insertMany([
+... {"_id" : 151,
+... "nome" : "Gloria Bradao",
+... "cpf" : "191.953.252-44",
+... "sexo" : "F",
+... "salario" : 2123.76,
+... "telefones" : "95 97412-0023",
+... "email" : "gloriab@email.com",
+... "escolaridade" : "Nivel 4",
+... "funcao" : "Turismologo"
+... },
+... {"_id" : 163,
+... "nome" : "Calisto Bello",
+... "cpf" : "783.143.542-87",
+... "sexo" : "M",
+... "salario" : 650.51,
+... "telefones" : "95 98412-1478",
+... "email" : "calisto@email.com",
+... "escolaridade" : "Nivel 2",
+... "funcao" : "Jovem Aprendiz"
+... },
+... {"_id" : 169,
+... "nome" : "Vincentina Barbosa",
+... "cpf" : "051.956.952-15",
+... "sexo" : "F",
+... "salario" : 760.54,
+... "telefones" : "95 97415-9630",
+... "email" : "vincentina@email.com",
+... "escolaridade" : "Nivel 3",
+... "funcao" : "Estagiario em Educacao Fisica"
+... },
+... {"_id" : 220,
+... "nome" : "Tiberio Zalin",
+... "cpf" : "004.199.142-96",
+... "sexo" : "M",
+... "salario" : 3363.05,
+... "telefones" : "95 98520-1478",
+... "email" : "zalin@email.com",
+... "escolaridade" : "Nivel 4",
+... "funcao" : "Adminitrador"
+... }
+... ])
+{ "acknowledged" : true, "insertedIds" : [ 151, 163, 169, 220 ] }
+>
+> db.servidorpublico.find().pretty()
+{
+        "_id" : 109,
+        "nome" : "Crispim Epaminondas",
+        "cpf" : "753.963.552-15",
+        "sexo" : "M",
+        "salario" : 6769.96,
+        "telefones" : [
+                {
+                        "ddd" : 95,
+                        "numero" : "98242-9523"
+                },
+                {
+                        "ddd" : 95,
+                        "numero" : "3535-8996"
+                }
+        ],
+        "email" : "epaminondas@email.com",
+        "escolaridade" : "Nivel 4",
+        "funcao" : "Turismologo"
+}
+{
+        "_id" : 118,
+        "nome" : "Belizario Guerino",
+        "cpf" : " 321.153.252-00",
+        "sexo" : "M",
+        "salario" : 11787.12,
+        "telefones" : [
+                {
+                        "ddd" : 95,
+                        "numero" : "98296-8963"
+                },
+                {
+                        "ddd" : 95,
+                        "numero" : "3535-5236"
+                }
+        ],
+        "email" : [
+                "belizarioguerino@email.com",
+                "chefiaturismo@email.com"
+        ],
+        "escolaridade" : "Nivel 5",
+        " funcao" : {
+                " funcaoAdjunta" : {
+                        "cargo" : "Turismologo"
+                },
+                "funcaoTemporaria" : {
+                        "cargo" : "Chefia em Turismo "
+                }
+        }
+}
+{
+        "_id" : 166,
+        "nome" : "Balthazar Gregorio",
+        "cpf" : "850.883.852-51",
+        "sexo" : "M",
+        "salario" : 800.45,
+        "telefones" : "95 98485-8520",
+        "email" : "balthazargregorio@email.com",
+        "escolaridade" : "Nivel 3",
+        "funcao" : "Estagiario em Turismo"
+}
+{
+        "_id" : 158,
+        "nome" : "Zuleide Zacarias",
+        "cpf" : "002.183.062-02",
+        "sexo" : "F",
+        "salario" : 4767.3,
+        "telefones" : [
+                {
+                        "ddd" : 95,
+                        "numero" : " 9963-5287"
+                },
+                {
+                        "ddd" : 95,
+                        "numero" : "3536-1111"
+                }
+        ],
+        "email" : "zuleidezacarias@email.com",
+        "escolaridade" : "Nivel 5",
+        "funcao" : "Profissional de Educacao Fisica"
+}
+{
+        "_id" : 151,
+        "nome" : "Gloria Bradao",
+        "cpf" : "191.953.252-44",
+        "sexo" : "F",
+        "salario" : 2123.76,
+        "telefones" : "95 97412-0023",
+        "email" : "gloriab@email.com",
+        "escolaridade" : "Nivel 4",
+        "funcao" : "Turismologo"
+}
+{
+        "_id" : 163,
+        "nome" : "Calisto Bello",
+        "cpf" : "783.143.542-87",
+        "sexo" : "M",
+        "salario" : 650.51,
+        "telefones" : "95 98412-1478",
+        "email" : "calisto@email.com",
+        "escolaridade" : "Nivel 2",
+        "funcao" : "Jovem Aprendiz"
+}
+{
+        "_id" : 169,
+        "nome" : "Vincentina Barbosa",
+        "cpf" : "051.956.952-15",
+        "sexo" : "F",
+        "salario" : 760.54,
+        "telefones" : "95 97415-9630",
+        "email" : "vincentina@email.com",
+        "escolaridade" : "Nivel 3",
+        "funcao" : "Estagiario em Educacao Fisica"
+}
+{
+        "_id" : 220,
+        "nome" : "Tiberio Zalin",
+        "cpf" : "004.199.142-96",
+        "sexo" : "M",
+        "salario" : 3363.05,
+        "telefones" : "95 98520-1478",
+        "email" : "zalin@email.com",
+        "escolaridade" : "Nivel 4",
+        "funcao" : "Adminitrador"
+}
+>
+> db.servidorpublico.update({"_id":220}, { $unset: {"escolaridade" : null}})
+WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 1 })
+>
+> db.servidorpublico.update({"_id":158}, { $push: {"telefones" : "95 982298181"}})
+WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 1 })
+>
+> db.servidorpublico.update({"_id":158}, { $pull: {"telefones" : "95 982298181"}})
+WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 1 })
+>
+> db.servidorpublico.update({"_id":118}, { $set: {"função.funcaoAdjunta.cargo" : "Secretario de Turismo"}})
+WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 1 })
+>
+> db.servidorpublico.insertOne(
+... {
+... "_id" : 223,
+... "nome" : "Frederico Franco",
+... "cpf" : "100.105.182-00",
+... "sexo" : "M",
+... "salario" : 4863.05,
+... "telefones" : [ {"ddd" : 95, "numero" : " 99522-1571"},
+... {"ddd" : 95, "numero" : "3538-2245"}
+... ],
+... "email" : "fffrederico@email.com",
+... "escolaridade" : "Nivel 4",
+... "funcao" : "Adminitrador",
+...
+... "evento" : []
+... }
+... )
+{ "acknowledged" : true, "insertedId" : 223 }
+>
+> db.evento.insertOne(
+... {
+... "_id" : 66,
+... "id_servidorpublico" : 223,
+... "nome" : "Circuito Nacional de Rodeio",
+... "local" : "Centro de Eventos",
+... "custo" : 7789654.99,
+... "data_inicio" : ISODate("2008-08-25"),
+... "data_fim" : ISODate("2008-08-28")
+... }
+... )
+{ "acknowledged" : true, "insertedId" : 66 }
+>
+> db.evento.find().pretty()
+{
+        "_id" : 66,
+        "id_servidorpublico" : 223,
+        "nome" : "Circuito Nacional de Rodeio",
+        "local" : "Centro de Eventos",
+        "custo" : 7789654.99,
+        "data_inicio" : ISODate("2008-08-25T00:00:00Z"),
+        "data_fim" : ISODate("2008-08-28T00:00:00Z")
+}
+>
+> db.servidorpublico.update({"_id": 223}, { $push: {"evento": 66}})
+WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 1 })
+>
+> db.evento.insertOne(
+... {
+... "_id" : 82,
+... "id_servidorpublico" : 223,
+... "nome" : "Feira do Agricola",
+... "local" : "Centro de Exposicao Municipal",
+... "custo" : 1502896.02,
+... "data_inicio" : ISODate("2015-07-01"),
+... "data_fim" : ISODate("2015-07-06")
+... }
+... )
+{ "acknowledged" : true, "insertedId" : 82 }
+>
+> db.servidorpublico.update({"_id": 223}, { $push: {"evento": 82}})
+WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 1 })
+>
+> db.evento.insertOne(
+... {
+... "_id" : 94,
+... "id_servidorpublico" : 223,
+... "nome" : "Carnaval do Cupuacu",
+... "local" : "Pavilhao de Eventos",
+... "custo" : 2779632.13,
+... "data_inicio" : ISODate("2008-02-02"),
+... "data_fim" : ISODate("2008-02-05")
+... }
+... )
+{ "acknowledged" : true, "insertedId" : 94 }
+>
+> db.servidorpublico.update({"_id": 223}, { $push: {"evento": 94}})
+WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 1 })
+>
+> db.servidorpublico.find({"_id": 223}).pretty()
+{
+        "_id" : 223,
+        "nome" : "Frederico Franco",
+        "cpf" : "100.105.182-00",
+        "sexo" : "M",
+        "salario" : 4863.05,
+        "telefones" : [
+                {
+                        "ddd" : 95,
+                        "numero" : " 99522-1571"
+                },
+                {
+                        "ddd" : 95,
+                        "numero" : "3538-2245"
+                }
+        ],
+        "email" : "fffrederico@email.com",
+        "escolaridade" : "Nivel 4",
+        "funcao" : "Adminitrador",
+        "evento" : [
+                66,
+                82,
+                94
+        ]
+}
+>
+> db.evento.find({"_id": {$in : [82,94]}}).pretty()
+{
+        "_id" : 82,
+        "id_servidorpublico" : 223,
+        "nome" : "Feira do Agricola",
+        "local" : "Centro de Exposicao Municipal",
+        "custo" : 1502896.02,
+        "data_inicio" : ISODate("2015-07-01T00:00:00Z"),
+        "data_fim" : ISODate("2015-07-06T00:00:00Z")
+}
+{
+        "_id" : 94,
+        "id_servidorpublico" : 223,
+        "nome" : "Carnaval do Cupuacu",
+        "local" : "Pavilhao de Eventos",
+        "custo" : 2779632.13,
+        "data_inicio" : ISODate("2008-02-02T00:00:00Z"),
+        "data_fim" : ISODate("2008-02-05T00:00:00Z")
+}
+>
+> db.evento.find({"data_inicio": {$gt : ISODate("2010-01-01")}}).pretty()
+{
+        "_id" : 82,
+        "id_servidorpublico" : 223,
+        "nome" : "Feira do Agricola",
+        "local" : "Centro de Exposicao Municipal",
+        "custo" : 1502896.02,
+        "data_inicio" : ISODate("2015-07-01T00:00:00Z"),
+        "data_fim" : ISODate("2015-07-06T00:00:00Z")
+}
+>
+> db.evento.find({"custo": {$gte : 6000000.00, $lte : 8000000.00}}).pretty()
+{
+        "_id" : 66,
+        "id_servidorpublico" : 223,
+        "nome" : "Circuito Nacional de Rodeio",
+        "local" : "Centro de Eventos",
+        "custo" : 7789654.99,
+        "data_inicio" : ISODate("2008-08-25T00:00:00Z"),
+        "data_fim" : ISODate("2008-08-28T00:00:00Z")
+}
+>
+> db.evento.find().pretty()
+{
+        "_id" : 82,
+        "id_servidorpublico" : 223,
+        "nome" : "Feira do Agricola",
+        "local" : "Centro de Exposicao Municipal",
+        "custo" : 1502896.02,
+        "data_inicio" : ISODate("2015-07-01T00:00:00Z"),
+        "data_fim" : ISODate("2015-07-06T00:00:00Z")
+}
+{
+        "_id" : 94,
+        "id_servidorpublico" : 223,
+        "nome" : "Carnaval do Cupuacu",
+        "local" : "Pavilhao de Eventos",
+        "custo" : 2779632.13,
+        "data_inicio" : ISODate("2008-02-02T00:00:00Z"),
+        "data_fim" : ISODate("2008-02-05T00:00:00Z")
+}
+>
+> db.evento.deleteOne({"_id" : 66})
+{ "acknowledged" : true, "deletedCount" : 1 }
+>
+> db.evento.find().pretty()
+{
+        "_id" : 82,
+        "id_servidorpublico" : 223,
+        "nome" : "Feira do Agricola",
+        "local" : "Centro de Exposicao Municipal",
+        "custo" : 1502896.02,
+        "data_inicio" : ISODate("2015-07-01T00:00:00Z"),
+        "data_fim" : ISODate("2015-07-06T00:00:00Z")
+}
+{
+        "_id" : 94,
+        "id_servidorpublico" : 223,
+        "nome" : "Carnaval do Cupuacu",
+        "local" : "Pavilhao de Eventos",
+        "custo" : 2779632.13,
+        "data_inicio" : ISODate("2008-02-02T00:00:00Z"),
+        "data_fim" : ISODate("2008-02-05T00:00:00Z")
+}
+>
+> db.evento.deleteMany({"id_servidorpublico" : 223})
+{ "acknowledged" : true, "deletedCount" : 2 }
+>
+> db.servidorpublico.remove({"_id" : 158})
+WriteResult({ "nRemoved" : 1 })
+>
+> db.evento.remove({})
+WriteResult({ "nRemoved" : 0 })
+>
+> db.servidorpublico.find().pretty()
+{
+        "_id" : 109,
+        "nome" : "Crispim Epaminondas",
+        "cpf" : "753.963.552-15",
+        "sexo" : "M",
+        "salario" : 6769.96,
+        "telefones" : [
+                {
+                        "ddd" : 95,
+                        "numero" : "98242-9523"
+                },
+                {
+                        "ddd" : 95,
+                        "numero" : "3535-8996"
+                }
+        ],
+        "email" : "epaminondas@email.com",
+        "escolaridade" : "Nivel 4",
+        "funcao" : "Turismologo"
+}
+{
+        "_id" : 118,
+        "nome" : "Belizario Guerino",
+        "cpf" : " 321.153.252-00",
+        "sexo" : "M",
+        "salario" : 11787.12,
+        "telefones" : [
+                {
+                        "ddd" : 95,
+                        "numero" : "98296-8963"
+                },
+                {
+                        "ddd" : 95,
+                        "numero" : "3535-5236"
+                }
+        ],
+        "email" : [
+                "belizarioguerino@email.com",
+                "chefiaturismo@email.com"
+        ],
+        "escolaridade" : "Nivel 5",
+        " funcao" : {
+                " funcaoAdjunta" : {
+                        "cargo" : "Turismologo"
+                },
+                "funcaoTemporaria" : {
+                        "cargo" : "Chefia em Turismo "
+                }
+        },
+        "função" : {
+                "funcaoAdjunta" : {
+                        "cargo" : "Secretario de Turismo"
+                }
+        }
+}
+{
+        "_id" : 166,
+        "nome" : "Balthazar Gregorio",
+        "cpf" : "850.883.852-51",
+        "sexo" : "M",
+        "salario" : 800.45,
+        "telefones" : "95 98485-8520",
+        "email" : "balthazargregorio@email.com",
+        "escolaridade" : "Nivel 3",
+        "funcao" : "Estagiario em Turismo"
+}
+{
+        "_id" : 151,
+        "nome" : "Gloria Bradao",
+        "cpf" : "191.953.252-44",
+        "sexo" : "F",
+        "salario" : 2123.76,
+        "telefones" : "95 97412-0023",
+        "email" : "gloriab@email.com",
+        "escolaridade" : "Nivel 4",
+        "funcao" : "Turismologo"
+}
+{
+        "_id" : 163,
+        "nome" : "Calisto Bello",
+        "cpf" : "783.143.542-87",
+        "sexo" : "M",
+        "salario" : 650.51,
+        "telefones" : "95 98412-1478",
+        "email" : "calisto@email.com",
+        "escolaridade" : "Nivel 2",
+        "funcao" : "Jovem Aprendiz"
+}
+{
+        "_id" : 169,
+        "nome" : "Vincentina Barbosa",
+        "cpf" : "051.956.952-15",
+        "sexo" : "F",
+        "salario" : 760.54,
+        "telefones" : "95 97415-9630",
+        "email" : "vincentina@email.com",
+        "escolaridade" : "Nivel 3",
+        "funcao" : "Estagiario em Educacao Fisica"
+}
+{
+        "_id" : 220,
+        "nome" : "Tiberio Zalin",
+        "cpf" : "004.199.142-96",
+        "sexo" : "M",
+        "salario" : 3363.05,
+        "telefones" : "95 98520-1478",
+        "email" : "zalin@email.com",
+        "funcao" : "Adminitrador"
+}
+{
+        "_id" : 223,
+        "nome" : "Frederico Franco",
+        "cpf" : "100.105.182-00",
+        "sexo" : "M",
+        "salario" : 4863.05,
+        "telefones" : [
+                {
+                        "ddd" : 95,
+                        "numero" : " 99522-1571"
+                },
+                {
+                        "ddd" : 95,
+                        "numero" : "3538-2245"
+                }
+        ],
+        "email" : "fffrederico@email.com",
+        "escolaridade" : "Nivel 4",
+        "funcao" : "Adminitrador",
+        "evento" : [
+        ]
+}
+>
+> show collections
+evento
+servidorpublico
+>
+> db.evento.drop()
+true
+>
+> show collections
+servidorpublico
+>
+> db.dropDatabase()
+{ "dropped" : "eventoPrefeituraRoraima", "ok" : 1 }
+>
+> show dbs
+admin                          0.000GB
+config                         0.000GB
+local                          0.000GB
+>
+> exit
+bye
+
+C:\Program Files\MongoDB\Server\4.2\bin>
+
+
+
+
