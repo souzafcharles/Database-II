@@ -8,7 +8,7 @@
 
 :computer: Technologist degree in System Analysis and Development at [IFSP](https://www.ifsp.edu.br/), São Carlos, SP, Brazil
 
-:dolphin: Interface used: [MySQL Workbench](https://www.mysql.com/products/workbench/)
+:o: Interface used: [Oracle SQL Developer](https://www.oracle.com/database/technologies/appdev/sqldeveloper-landing.html)
 
 :calendar: 1st semester 2021
 
