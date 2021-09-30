@@ -1,0 +1,35 @@
+;;; 
+Export: Release 18.0.0.0.0 - Production on Seg Jun 28 21:48:54 2021
+Version 18.4.0.0.0
+
+Copyright (c) 1982, 2019, Oracle and/or its affiliates.  All rights reserved.
+;;; 
+Conectado a: Oracle Database 18c Express Edition Release 18.0.0.0.0 - Production
+Iniciando "SYSTEM"."SYS_EXPORT_SCHEMA_01":  system/******** schemas=charles directory=charles_dump dumpfile=charlesschema.dmp logfile=charlesschema.log 
+Processando o tipo de objeto SCHEMA_EXPORT/TABLE/TABLE_DATA
+Processando o tipo de objeto SCHEMA_EXPORT/TABLE/INDEX/STATISTICS/INDEX_STATISTICS
+Processando o tipo de objeto SCHEMA_EXPORT/TABLE/STATISTICS/TABLE_STATISTICS
+Processando o tipo de objeto SCHEMA_EXPORT/STATISTICS/MARKER
+Processando o tipo de objeto SCHEMA_EXPORT/DEFAULT_ROLE
+Processando o tipo de objeto SCHEMA_EXPORT/TABLESPACE_QUOTA
+Processando o tipo de objeto SCHEMA_EXPORT/PRE_SCHEMA/PROCACT_SCHEMA
+Processando o tipo de objeto SCHEMA_EXPORT/SEQUENCE/SEQUENCE
+Processando o tipo de objeto SCHEMA_EXPORT/TABLE/TABLE
+Processando o tipo de objeto SCHEMA_EXPORT/TABLE/INDEX/INDEX
+Processando o tipo de objeto SCHEMA_EXPORT/TABLE/CONSTRAINT/CONSTRAINT
+Processando o tipo de objeto SCHEMA_EXPORT/TABLE/CONSTRAINT/REF_CONSTRAINT
+Processando o tipo de objeto SCHEMA_EXPORT/TABLE/TRIGGER
+. . exportou "CHARLES"."AUDIT_EVENTO_CUSTO"              6.984 KB       1 linhas
+. . exportou "CHARLES"."EVENTO"                          10.03 KB      27 linhas
+. . exportou "CHARLES"."EVENTO_LOG"                          0 KB       0 linhas
+. . exportou "CHARLES"."FUNCIONARIOPUBLICO"              5.851 KB      30 linhas
+. . exportou "CHARLES"."FUNCIONARIOTEMPORARIO"           6.710 KB      12 linhas
+. . exportou "CHARLES"."PLANEJA"                         6.695 KB      40 linhas
+. . exportou "CHARLES"."PREFEITURA"                      10.21 KB      25 linhas
+. . exportou "CHARLES"."SECRETARIA"                      8.906 KB      24 linhas
+. . exportou "CHARLES"."SERVIDORPUBLICO"                 13.71 KB      42 linhas
+Tabela-mestre "SYSTEM"."SYS_EXPORT_SCHEMA_01" carregada/descarregada com sucesso
+******************************************************************************
+Conjunto de arquivos de dump para SYSTEM.SYS_EXPORT_SCHEMA_01 é:
+  D:\TEMP\DUMPS\CHARLESSCHEMA.DMP
+O job "SYSTEM"."SYS_EXPORT_SCHEMA_01" foi concluído com sucesso em Seg Jun 28 21:50:31 2021 elapsed 0 00:01:27
